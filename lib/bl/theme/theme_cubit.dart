@@ -8,11 +8,13 @@ class ThemeCubit extends Cubit<ThemeMode> {
   void toggleThemeMode() {
     final newTheme = state == ThemeMode.light
         ? ThemeMode.dark
-        : state == ThemeMode.dark
-        ? ThemeMode.system
         : ThemeMode.light;
 
     emit(newTheme);
     ThemeStorage.saveThemeMode(newTheme);
+  }
+  void setThemeMode(ThemeMode themeMode) {
+    emit(themeMode);
+    ThemeStorage.saveThemeMode(themeMode);
   }
 }

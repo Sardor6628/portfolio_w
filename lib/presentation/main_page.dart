@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
+import 'package:website_p/bl/theme/theme_cubit.dart';
 import 'package:website_p/widgets/animated_text_widget.dart';
+import 'package:website_p/widgets/theme_toggler.dart';
 
 @RoutePage()
 class MainDisplayPage extends StatefulWidget {
@@ -30,14 +33,15 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                     constraints: BoxConstraints(maxWidth: 800),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Theme.of(context)
+                        color: Theme
+                            .of(context)
                             .scaffoldBackgroundColor
                             .withOpacity(0.4),
                         border: Border.all(color: Color(0xff3d424a), width: 1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -69,16 +73,21 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                                         .read<MainPageCubit>()
                                         .updateAnimatedText('about');
                                   },
-                                  child: Text('About Me')),
+                                  child: Text(
+                                    'About Me',
+                                    style: TextStyle(color: Colors.blue),
+                                  )),
                               TextButton(
                                   onPressed: () {
                                     context
                                         .read<MainPageCubit>()
                                         .updateAnimatedText('blog');
                                   },
-                                  child: Text('My Blog')),
-
-
+                                  child: Text(
+                                    'My Blog',
+                                    style: TextStyle(color: Colors.blue),
+                                  )),
+                              LightDarkToggle()
                             ],
                           ),
                         ],
@@ -95,3 +104,5 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
     );
   }
 }
+
+
