@@ -1,11 +1,14 @@
 part of 'main_page_cubit.dart';
 
 @immutable
-sealed class MainPageState {
-}
+abstract class MainPageState {}
 
-final class MainPageInitial extends MainPageState {
-  String animatedText;
-  MainPageInitial({required this.animatedText});
+class MainPageInitial extends MainPageState {
+  final String animatedText;
+  final String currentSection;
 
+  MainPageInitial({
+    required this.animatedText,
+    required this.currentSection,
+  });
 }

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:website_p/presentation/about_me_page.dart';
 import 'package:website_p/presentation/main_page.dart';
+import 'package:website_p/presentation/blog_page.dart';
 
 part 'route.gr.dart';
 
@@ -16,7 +17,14 @@ class AppRouter extends RootStackRouter {
         // HomeScreen is generated as HomeRoute because
         // of the replaceInRouteName property
         AutoRoute(page: MainDisplayRoute.page, initial: true),
-        AutoRoute(page: AboutMeRoute.page),
+    AutoRoute(
+      path: '/about',
+      page: AboutMeRoute.page,
+    ),
+    AutoRoute(
+      path: '/blog',
+      page: BlogRoute.page,
+    ),
       ];
 
   @override
