@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
+import 'package:website_p/presentation/main_page_pages/main_content.dart';
 import 'package:website_p/widgets/animated_text_widget.dart';
 import 'package:website_p/widgets/theme_toggler.dart';
+
+import '../../constants/constant_colors.dart';
 
 var logger = Logger();
 
@@ -31,8 +34,8 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
   void _initializeSectionFromRoute() {
     final uri = Uri.parse(context.router.currentPath); // Updated
     final section = uri.queryParameters['section'] ?? '';
-    logger.d('Initial section: $section');
-    logger.d('Full URI: $uri');
+    // logger.d('Initial section: $section');
+    // logger.d('Full URI: $uri');
 
     // Initialize the Cubit with the section
     context.read<MainPageCubit>().updateSection(section);
@@ -43,7 +46,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        margin: const EdgeInsets.all(16),
+        margin: const EdgeInsets.all(32),
         child: Column(
           children: [
             // Navigation Bar
@@ -54,11 +57,15 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                   if (state is MainPageInitial) {
                     return Container(
                       decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
-                        border: Border.all(color: const Color(0xff3d424a), width: 1),
+                        color: Theme.of(context)
+                            .scaffoldBackgroundColor
+                            .withOpacity(0.4),
+                        border: Border.all(
+                            color: const Color(0xff3d424a), width: 1),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -67,14 +74,19 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  context.read<MainPageCubit>().updateSection('');
+                                  context
+                                      .read<MainPageCubit>()
+                                      .updateSection('');
                                   context.router.replaceNamed('/');
-                                  logger.i('Current URI: ${context.router.currentPath}');
+                                //   logger.i(
+                                //       'Current URI: ${context.router.currentPath}');
                                 },
                                 child: Row(
                                   children: [
-                                    const Icon(Icons.apple, color: Color(0xff21b4e1), size: 32),
-                                    const Icon(Icons.arrow_forward_ios_outlined, size: 28),
+                                    Icon(Icons.apple,
+                                        color: blue, size: 32),
+                                    const Icon(Icons.arrow_forward_ios_outlined,
+                                        size: 28),
                                     const Icon(Icons.home, size: 32),
                                   ],
                                 ),
@@ -89,24 +101,32 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                             children: [
                               TextButton(
                                 onPressed: () {
-                                  context.read<MainPageCubit>().updateSection('about');
-                                  context.router.replaceNamed('/?section=about');
-                                  logger.i('Current URI: ${context.router.currentPath}');
+                                  context
+                                      .read<MainPageCubit>()
+                                      .updateSection('about');
+                                  context.router
+                                      .replaceNamed('/?section=about');
+                                  // logger.i(
+                                  //     'Current URI: ${context.router.currentPath}');
                                 },
-                                child: const Text(
+                                child:  Text(
                                   'About Me',
-                                  style: TextStyle(color: Colors.blue),
+                                  // style: TextStyle(color: Colors.blue),
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                               ),
                               TextButton(
                                 onPressed: () {
-                                  context.read<MainPageCubit>().updateSection('blog');
+                                  context
+                                      .read<MainPageCubit>()
+                                      .updateSection('blog');
                                   context.router.replaceNamed('/?section=blog');
-                                  logger.i('Current URI: ${context.router.currentPath}');
+                                  // logger.i(
+                                  //     'Current URI: ${context.router.currentPath}');
                                 },
-                                child: const Text(
+                                child:  Text(
                                   'My Blog',
-                                  style: TextStyle(color: Colors.blue),
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                               ),
                               LightDarkToggle(),
@@ -156,12 +176,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
           ),
         );
       default:
-        return const Center(
-          child: Text(
-            'PLACEHOLDER FOR MAIN',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        );
+        return MainContentWidget();
     }
   }
 }

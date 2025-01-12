@@ -41,6 +41,8 @@ dependencies:
   auto_route: ^9.3.0+1
   lottie: ^3.2.0
   logger: ^2.5.0
+  google_fonts: ^6.2.1
+  animated_text_kit: ^4.2.2
 
 
 dev_dependencies:

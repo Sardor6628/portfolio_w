@@ -57,7 +57,9 @@ class _LightDarkToggleState extends State<LightDarkToggle>
             height: 32,
             width: 32,
             repeat: false,
+            reverse:!isDarkMode,
             controller: _animationController,
+
             onLoaded: (composition) {
               // Set the animation duration dynamically based on the Lottie file
               _animationController.duration = Duration(microseconds: (composition.duration.inMicroseconds/2).round());

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:logger/logger.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
@@ -47,10 +48,13 @@ class MyApp extends StatelessWidget {
           return MaterialApp.router(
             routerDelegate: appRouter.delegate(),
             routeInformationParser: appRouter.defaultRouteParser(),
-            theme: ThemeData(useMaterial3: true),
+            theme: ThemeData(
+              useMaterial3: true,
+            ),
             darkTheme: ThemeData(
               useMaterial3: true,
               scaffoldBackgroundColor: const Color(0xff272c35),
+
               // Custom dark background
               brightness: Brightness.dark,
             ),
