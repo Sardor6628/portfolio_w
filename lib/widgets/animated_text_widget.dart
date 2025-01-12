@@ -8,12 +8,18 @@ class AnimatedTextWidget extends StatefulWidget {
   State<AnimatedTextWidget> createState() => _AnimatedTextWidgetState();
 }
 
-class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
+class _AnimatedTextWidgetState extends State<AnimatedTextWidget>
+    with SingleTickerProviderStateMixin {
   int _currentCharIndex = 0;
+  late AnimationController _cursorController;
 
   @override
   void initState() {
     super.initState();
+    _cursorController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    )..repeat(reverse: true); // Continuous blinking cursor
     _animateText();
   }
 
@@ -24,6 +30,12 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
       _currentCharIndex = 0;
       _animateText();
     }
+  }
+
+  @override
+  void dispose() {
+    _cursorController.dispose();
+    super.dispose();
   }
 
   void _animateText() {
@@ -39,13 +51,18 @@ class _AnimatedTextWidgetState extends State<AnimatedTextWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      widget.text.substring(0, _currentCharIndex),
-      style: const TextStyle(
-        fontSize: 24,
-        fontStyle: FontStyle.italic,
-        fontWeight: FontWeight.bold,
-      ),
+    return AnimatedBuilder(
+      animation: _cursorController,
+      builder: (context, child) {
+        // Toggle the visibility of the "|" based on the animation value
+        final cursorVisible = _cursorController.value > 0.5;
+        return Text(
+          '${widget.text.substring(0, _currentCharIndex)}${cursorVisible ? "|" : ""}',
+          style: const TextStyle(
+            fontSize: 20,
+          ),
+        );
+      },
     );
   }
 }

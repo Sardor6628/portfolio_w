@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_p/bl/animated_text/animated_text_cubit.dart';
+import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
 import 'package:website_p/services/router/route.dart';
 import 'package:website_p/services/storage/theme_storage.dart';
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           create: (context) => ThemeCubit(savedThemeMode),
         ),
         BlocProvider(
-          create: (context) => TypeWriterCubit(),
+          create: (context) => MainPageCubit(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
@@ -49,6 +49,8 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(useMaterial3: true),
             darkTheme: ThemeData(
               useMaterial3: true,
+              scaffoldBackgroundColor: const Color(0xff272c35),
+              // Custom dark background
               brightness: Brightness.dark,
             ),
             themeMode: themeMode,
