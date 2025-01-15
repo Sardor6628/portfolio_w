@@ -44,115 +44,117 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        margin: const EdgeInsets.all(32),
-        child: Column(
-          children: [
-            // Navigation Bar
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 800),
-              child: BlocBuilder<MainPageCubit, MainPageState>(
-                builder: (context, state) {
-                  if (state is MainPageInitial) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context)
-                            .scaffoldBackgroundColor
-                            .withOpacity(0.4),
-                        border: Border.all(
-                            color: const Color(0xff3d424a), width: 1),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  context
-                                      .read<MainPageCubit>()
-                                      .updateSection('');
-                                  context.router.replaceNamed('/');
-                                //   logger.i(
-                                //       'Current URI: ${context.router.currentPath}');
-                                },
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.apple,
-                                        color: blue, size: 32),
-                                    const Icon(Icons.arrow_forward_ios_outlined,
-                                        size: 28),
-                                    const Icon(Icons.home, size: 32),
-                                  ],
+      body: SafeArea(
+        child: Container(
+          alignment: Alignment.center,
+          margin: const EdgeInsets.all(32),
+          child: Column(
+            children: [
+              // Navigation Bar
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 800),
+                child: BlocBuilder<MainPageCubit, MainPageState>(
+                  builder: (context, state) {
+                    if (state is MainPageInitial) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context)
+                              .scaffoldBackgroundColor
+                              .withOpacity(0.4),
+                          border: Border.all(
+                              color: const Color(0xff3d424a), width: 1),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    context
+                                        .read<MainPageCubit>()
+                                        .updateSection('');
+                                    context.router.replaceNamed('/');
+                                  //   logger.i(
+                                  //       'Current URI: ${context.router.currentPath}');
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.apple,
+                                          color: blue, size: 32),
+                                      const Icon(Icons.arrow_forward_ios_outlined,
+                                          size: 28),
+                                      const Icon(Icons.home, size: 32),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              AnimatedTextWidget(
-                                text: state.animatedText,
-                                key: Key(state.animatedText),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              TextButton(
-                                onPressed: () {
-                                  context
-                                      .read<MainPageCubit>()
-                                      .updateSection('about');
-                                  context.router
-                                      .replaceNamed('/?section=about');
-                                  // logger.i(
-                                  //     'Current URI: ${context.router.currentPath}');
-                                },
-                                child:  Text(
-                                  'About Me',
-                                  // style: TextStyle(color: Colors.blue),
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                AnimatedTextWidget(
+                                  text: state.animatedText,
+                                  key: Key(state.animatedText),
                                 ),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  context
-                                      .read<MainPageCubit>()
-                                      .updateSection('blog');
-                                  context.router.replaceNamed('/?section=blog');
-                                  // logger.i(
-                                  //     'Current URI: ${context.router.currentPath}');
-                                },
-                                child:  Text(
-                                  'My Blog',
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    context
+                                        .read<MainPageCubit>()
+                                        .updateSection('about');
+                                    context.router
+                                        .replaceNamed('/?section=about');
+                                    // logger.i(
+                                    //     'Current URI: ${context.router.currentPath}');
+                                  },
+                                  child:  Text(
+                                    'About Me',
+                                    // style: TextStyle(color: Colors.blue),
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
                                 ),
-                              ),
-                              LightDarkToggle(),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-                  return Container();
-                },
+                                TextButton(
+                                  onPressed: () {
+                                    context
+                                        .read<MainPageCubit>()
+                                        .updateSection('blog');
+                                    context.router.replaceNamed('/?section=blog');
+                                    // logger.i(
+                                    //     'Current URI: ${context.router.currentPath}');
+                                  },
+                                  child:  Text(
+                                    'My Blog',
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ),
+                                LightDarkToggle(),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    }
+                    return Container();
+                  },
+                ),
               ),
-            ),
-
-            // Dynamic Content
-            Expanded(
-              child: BlocBuilder<MainPageCubit, MainPageState>(
-                builder: (context, state) {
-                  if (state is MainPageInitial) {
-                    return _buildSectionContent(state.currentSection);
-                  }
-                  return Container();
-                },
+        
+              // Dynamic Content
+              Expanded(
+                child: BlocBuilder<MainPageCubit, MainPageState>(
+                  builder: (context, state) {
+                    if (state is MainPageInitial) {
+                      return _buildSectionContent(state.currentSection);
+                    }
+                    return Container();
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
