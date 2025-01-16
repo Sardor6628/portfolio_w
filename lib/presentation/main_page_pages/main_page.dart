@@ -7,6 +7,7 @@ import 'package:website_p/presentation/main_page_pages/main_content.dart';
 import 'package:website_p/widgets/animated_text_widget.dart';
 import 'package:website_p/widgets/theme_toggler.dart';
 
+import '../../bl/main/widgets/hover_custom_buttoms_widget.dart';
 import '../../constants/constant_colors.dart';
 
 var logger = Logger();
@@ -50,100 +51,64 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
           margin: const EdgeInsets.all(32),
           child: Column(
             children: [
-              // Navigation Bar
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 800),
-                child: BlocBuilder<MainPageCubit, MainPageState>(
-                  builder: (context, state) {
-                    if (state is MainPageInitial) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Theme.of(context)
-                              .scaffoldBackgroundColor
-                              .withOpacity(0.4),
-                          border: Border.all(
-                              color: const Color(0xff3d424a), width: 1),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    context
-                                        .read<MainPageCubit>()
-                                        .updateSection('');
-                                    context.router.replaceNamed('/');
-                                  //   logger.i(
-                                  //       'Current URI: ${context.router.currentPath}');
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.apple,
-                                          color: blue, size: 32),
-                                      const Icon(Icons.arrow_forward_ios_outlined,
-                                          size: 28),
-                                      const Icon(Icons.home, size: 32),
-                                    ],
-                                  ),
-                                ),
-                                AnimatedTextWidget(
-                                  text: state.animatedText,
-                                  key: Key(state.animatedText),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                TextButton(
-                                  onPressed: () {
-                                    context
-                                        .read<MainPageCubit>()
-                                        .updateSection('about');
-                                    context.router
-                                        .replaceNamed('/?section=about');
-                                    // logger.i(
-                                    //     'Current URI: ${context.router.currentPath}');
-                                  },
-                                  child:  Text(
-                                    'About Me',
-                                    // style: TextStyle(color: Colors.blue),
-                                    style: Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    context
-                                        .read<MainPageCubit>()
-                                        .updateSection('blog');
-                                    context.router.replaceNamed('/?section=blog');
-                                    // logger.i(
-                                    //     'Current URI: ${context.router.currentPath}');
-                                  },
-                                  child:  Text(
-                                    'My Blog',
-                                    style: Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ),
-                                LightDarkToggle(),
-                              ],
-                            ),
-                          ],
-                        ),
-                      );
-                    }
-                    return Container();
-                  },
-                ),
-              ),
-        
-              // Dynamic Content
-              Expanded(
+          ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 800),
+          child: BlocBuilder<MainPageCubit, MainPageState>(
+            builder: (context, state) {
+              if (state is MainPageInitial) {
+                return Container(
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
+                    border: Border.all(color: const Color(0xff3d424a), width: 1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          HoverableRow(
+                            onTap: () {
+                              context.read<MainPageCubit>().updateSection('');
+                              context.router.replaceNamed('/');
+                            },
+                          ),
+                          AnimatedTextWidget(
+                            text: state.animatedText,
+                            key: Key(state.animatedText),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          HoverableTextButton(
+                            label: 'About Me',
+                            onPressed: () {
+                              context.read<MainPageCubit>().updateSection('about');
+                              context.router.replaceNamed('/?section=about');
+                            },
+                          ),
+                          HoverableTextButton(
+                            label: 'My Blog',
+                            onPressed: () {
+                              context.read<MainPageCubit>().updateSection('blog');
+                              context.router.replaceNamed('/?section=blog');
+                            },
+                          ),
+                          LightDarkToggle(),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              }
+              return Container();
+            },
+          ),
+        ),              Expanded(
                 child: BlocBuilder<MainPageCubit, MainPageState>(
                   builder: (context, state) {
                     if (state is MainPageInitial) {

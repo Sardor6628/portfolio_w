@@ -34,28 +34,33 @@ class _MainContentWidgetState extends State<MainContentWidget> {
               const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ConstrainedBox(
-                    constraints:
-                        const BoxConstraints(minWidth: 200, maxWidth: 750),
-                    child: Text(
-                      "Bringing Your Ideas to Life Through Software",
-                      maxLines: 2,
-                      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  Flexible(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minWidth: 200, maxWidth: 750),
+                      child: Text(
+                        "Bringing Your Ideas to Life Through Software",
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                  Lottie.asset(
-                    'assets/lotties/shake_hand.json',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.fill,
+                  Container(
+                    child: Lottie.asset(
+                      'assets/lotties/shake_hand.json',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ],
               ),
+
               const SizedBox(height: 16),
               RichText(
                 textAlign: TextAlign.justify,
@@ -71,18 +76,18 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                         text: "unique needs.", lottieAsset: lottieAssets[1]),
                     TextSpan(
                         text:
-                            " Whether it’s developing innovative software, enhancing existing systems, streamlining operations through automation, or integrating Generative AI, my approach focuses on delivering value-driven, future-ready solutions."),
-                    TextSpan(text: "With expertise in "),
+                            "Whether it’s developing innovative software, enhancing existing systems, streamlining operations through automation, or integrating Generative AI, my approach focuses on delivering value-driven, future-ready solutions."),
+                    TextSpan(text: " With expertise in"),
                     _highlightedText(
                         text: "software", lottieAsset: lottieAssets[3]),
                     TextSpan(text: "architecture, system centralization,"),
                     // _highlightedText(text: " ", lottieAsset: lottieAssets[2]),
-                    TextSpan(text: "and "),
+                    TextSpan(text: " and"),
                     _highlightedText(
                         text: "automation,", lottieAsset: lottieAssets[2]),
                     TextSpan(
                         text:
-                            "or integrating Generative AI, my approach focuses on delivering value-driven, future-ready "),
+                            "or integrating Generative AI, my approach focuses on delivering value-driven, future-ready"),
                     _highlightedText(
                         text: "solutions.", lottieAsset: lottieAssets[0]),
                     TextSpan(text: '\n\n'),
@@ -101,7 +106,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                         text: "My experience spans"),
                     _highlightedText(text: "diverse domains,", lottieAsset: lottieAssets[2]),
                     TextSpan(
-                        text: " including "),
+                        text: "including "),
                     TextSpan(text: "fitness", style: boldStyle),
                     TextSpan(text: ", "),
                     TextSpan(text: "education", style: boldStyle),

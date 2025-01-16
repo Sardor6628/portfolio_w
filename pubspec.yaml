@@ -43,6 +43,7 @@ dependencies:
   logger: ^2.5.0
   google_fonts: ^6.2.1
   animated_text_kit: ^4.2.2
+  glowy_borders: ^1.0.2
 
 
 dev_dependencies:
