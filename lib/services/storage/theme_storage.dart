@@ -13,7 +13,7 @@ class ThemeStorage {
       case 'dark':
         return ThemeMode.dark;
       default:
-        return ThemeMode.system;
+        return ThemeMode.dark;
     }
   }
 
@@ -27,7 +27,7 @@ class ThemeStorage {
         await prefs.setString(_key, 'dark');
         break;
       default:
-        await prefs.setString(_key, 'system');
+        await prefs.setString(_key, 'dark');
     }
   }
 }

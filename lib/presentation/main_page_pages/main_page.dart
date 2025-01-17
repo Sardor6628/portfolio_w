@@ -48,77 +48,102 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
-          margin: const EdgeInsets.all(32),
-          child: Column(
-            children: [
-          ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 800),
-          child: BlocBuilder<MainPageCubit, MainPageState>(
-            builder: (context, state) {
-              if (state is MainPageInitial) {
-                return Container(
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
-                    border: Border.all(color: const Color(0xff3d424a), width: 1),
-                    borderRadius: BorderRadius.circular(12),
+          margin: const EdgeInsets.symmetric(horizontal: 32),
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: 32),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 800),
+                    child: BlocBuilder<MainPageCubit, MainPageState>(
+                      builder: (context, state) {
+                        if (state is MainPageInitial) {
+                          return Container(
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .scaffoldBackgroundColor
+                                  .withOpacity(0.4),
+                              border: Border.all(
+                                  color: const Color(0xff3d424a), width: 1),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    HoverableRow(
+                                      onTap: () {
+                                        context
+                                            .read<MainPageCubit>()
+                                            .updateSection('');
+                                        context.router.replaceNamed('/');
+                                      },
+                                    ),
+                                    AnimatedTextWidget(
+                                      text: state.animatedText,
+                                      key: Key(state.animatedText),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: HoverableTextButton(
+                                        label: 'About Me',
+                                        onPressed: () {
+                                          context
+                                              .read<MainPageCubit>()
+                                              .updateSection('about');
+                                          context.router
+                                              .replaceNamed('/?section=about');
+                                        },
+                                      ),
+                                    ),
+                                    HoverableTextButton(
+                                      label: 'My Blog',
+                                      onPressed: () {
+                                        context
+                                            .read<MainPageCubit>()
+                                            .updateSection('blog');
+                                        context.router
+                                            .replaceNamed('/?section=blog');
+                                      },
+                                    ),
+                                    LightDarkToggle(),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                        return Container();
+                      },
+                    ),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          HoverableRow(
-                            onTap: () {
-                              context.read<MainPageCubit>().updateSection('');
-                              context.router.replaceNamed('/');
-                            },
-                          ),
-                          AnimatedTextWidget(
-                            text: state.animatedText,
-                            key: Key(state.animatedText),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          HoverableTextButton(
-                            label: 'About Me',
-                            onPressed: () {
-                              context.read<MainPageCubit>().updateSection('about');
-                              context.router.replaceNamed('/?section=about');
-                            },
-                          ),
-                          HoverableTextButton(
-                            label: 'My Blog',
-                            onPressed: () {
-                              context.read<MainPageCubit>().updateSection('blog');
-                              context.router.replaceNamed('/?section=blog');
-                            },
-                          ),
-                          LightDarkToggle(),
-                        ],
-                      ),
-                    ],
+                  BlocBuilder<MainPageCubit, MainPageState>(
+                    builder: (context, state) {
+                      if (state is MainPageInitial) {
+                        return ConstrainedBox(
+                            constraints: BoxConstraints(
+                                minHeight:
+                                    MediaQuery.of(context).size.height - 100),
+                            child: _buildSectionContent(state.currentSection));
+                      }
+                      return Container();
+                    },
                   ),
-                );
-              }
-              return Container();
-            },
-          ),
-        ),              Expanded(
-                child: BlocBuilder<MainPageCubit, MainPageState>(
-                  builder: (context, state) {
-                    if (state is MainPageInitial) {
-                      return _buildSectionContent(state.currentSection);
-                    }
-                    return Container();
-                  },
-                ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

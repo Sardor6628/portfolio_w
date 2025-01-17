@@ -3,4 +3,5 @@ class ImagePath{
   static String get markLottieMain2 => "assets/lotties/round_highlight.json";
   static String get markLottieMain4 => "assets/lotties/mark3.json";
   static String get markLottieMain3 => "assets/lotties/mark4.json";
+  static String get handShake => "assets/lotties/shake_hand.json";
  }
