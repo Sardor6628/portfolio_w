@@ -44,6 +44,7 @@ dependencies:
   google_fonts: ^6.2.1
   animated_text_kit: ^4.2.2
   glowy_borders: ^1.0.2
+  flutter_animate: ^4.5.2
 
 
 dev_dependencies:

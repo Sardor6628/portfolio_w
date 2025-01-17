@@ -35,7 +35,6 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
-          margin: const EdgeInsets.symmetric(horizontal: 32),
           child: ScrollConfiguration(
             behavior:
                 ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -104,6 +103,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                                     LightDarkToggle(),
                                   ],
                                 ),
+
                               ],
                             ),
                           );
@@ -124,6 +124,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                       return Container();
                     },
                   ),
+
                 ],
               ),
             ),

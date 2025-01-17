@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glowy_borders/glowy_borders.dart';
 import 'package:lottie/lottie.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
+import 'package:website_p/constants/constant_variable.dart';
 import 'package:website_p/constants/image_path.dart';
 import 'package:website_p/widgets/gradient_button_widget.dart';
 import 'package:website_p/widgets/rich_text_main_page_widget.dart';
@@ -17,12 +19,9 @@ class MainContentWidget extends StatefulWidget {
 }
 
 class _MainContentWidgetState extends State<MainContentWidget> {
-
-
   @override
   Widget build(BuildContext context) {
-    var boldStyle = Theme
-        .of(context)
+    var boldStyle = Theme.of(context)
         .textTheme
         .bodyLarge
         ?.copyWith(height: 2, fontWeight: FontWeight.bold);
@@ -45,10 +44,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                   children: [
                     GradientButtonWidget(
                         onTap: () {
-                          context
-                              .read<MainPageCubit>()
-                              .updateSection('about');
-
+                          context.read<MainPageCubit>().updateSection('about');
                         },
                         color: const Color(0xff818cf8),
                         isDarkMode: isDarkMode,
@@ -65,11 +61,36 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                 );
               },
             ),
+            Divider(),
+            Row(
+              children: [
+                Image.asset(ImagePath.logo, width: 24),
+                const SizedBox(width: 8),
+                Container(
+                  height: 24,
+                  alignment: Alignment.center,
+                  child:
+                      Icon(Icons.copyright, color: Color(0xff9ca3af), size: 16),
+                ),
+                const SizedBox(width: 8),
+                Text("${DateTime.now().year.toString()} SardorDev Consulting, ",
+                    style: TextStyle(
+                      color: Color(0xff9ca3af),
+                    )),
+                Text(
+                        "Have a nice ${ConstantVariables.weekDays[DateTime.now().weekday - 1]}!",style: TextStyle(color: Colors.pink, fontWeight: FontWeight.w700),)
+                    .animate(
+                        onPlay: (controller) =>
+                            controller.repeat(reverse: true))
+                    .saturate( duration: 1.seconds)
+                    .then() // set baseline time to previous effect's end time
+                    .tint(color: Colors.purple)
+              ],
+            ),
             const SizedBox(height: 20),
           ],
         ),
       ),
     );
   }
-
 }
