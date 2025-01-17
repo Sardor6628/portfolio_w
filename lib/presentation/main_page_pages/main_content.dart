@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:glowy_borders/glowy_borders.dart';
 import 'package:lottie/lottie.dart';
+import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
 import 'package:website_p/constants/image_path.dart';
 import 'package:website_p/widgets/gradient_button_widget.dart';
@@ -43,11 +44,17 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                 return Wrap(
                   children: [
                     GradientButtonWidget(
-                        onTap: () {},
+                        onTap: () {
+                          context
+                              .read<MainPageCubit>()
+                              .updateSection('about');
+
+                        },
                         color: const Color(0xff818cf8),
                         isDarkMode: isDarkMode,
                         isTheme1: true,
                         widgetButton: aboutMeText),
+                    const SizedBox(width: 4),
                     GradientButtonWidget(
                         onTap: () {},
                         color: const Color(0xff23cbe5),

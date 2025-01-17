@@ -38,35 +38,38 @@ class _GradientButtonWidgetState extends State<GradientButtonWidget> {
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeInOut,
-        alignment: Alignment.center,
-        width: 180,
-        // Increase width on hover
-        height: 55,
-        child: AnimatedGradientBorder(
-          borderSize: 1,
-          glowSize: 0,
-          animationTime: _isHovered ? 5 : 10,
-          gradientColors: widget.isTheme1 ? gradientColors1 : gradientColors2,
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
-              color: widget.isDarkMode ? Colors.black : Colors.white,
-            ),
-            child: Opacity(
-              opacity: _isHovered ? 0.8 : 1.0, // Hide text on hover
-              child: Transform.scale(
-                scale: _isHovered ? 1.05 : 1.0, // Scale widgetButton on hover
-                child: widget.widgetButton(
-                  _isHovered
-                      ? widget.isDarkMode
-                          ? Colors.white
-                          : Colors.black
-                      : widget.color,
+      child: GestureDetector(
+        onTap: () => widget.onTap(),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
+          alignment: Alignment.center,
+          width: 180,
+          // Increase width on hover
+          height: 55,
+          child: AnimatedGradientBorder(
+            borderSize: 1,
+            glowSize: 0,
+            animationTime: _isHovered ? 5 : 10,
+            gradientColors: widget.isTheme1 ? gradientColors1 : gradientColors2,
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                color: widget.isDarkMode ? Colors.black : Colors.white,
+              ),
+              child: Opacity(
+                opacity: _isHovered ? 0.8 : 1.0, // Hide text on hover
+                child: Transform.scale(
+                  scale: _isHovered ? 1.05 : 1.0, // Scale widgetButton on hover
+                  child: widget.widgetButton(
+                    _isHovered
+                        ? widget.isDarkMode
+                            ? Colors.white
+                            : Colors.black
+                        : widget.color,
+                  ),
                 ),
               ),
             ),

@@ -25,22 +25,9 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
   void initState() {
     super.initState();
 
-    // Parse the initial query parameters from the URL
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _initializeSectionFromRoute();
-    });
   }
 
   /// Parses the current URL and initializes the section
-  void _initializeSectionFromRoute() {
-    final uri = Uri.parse(context.router.currentPath); // Updated
-    final section = uri.queryParameters['section'] ?? '';
-    // logger.d('Initial section: $section');
-    // logger.d('Full URI: $uri');
-
-    // Initialize the Cubit with the section
-    context.read<MainPageCubit>().updateSection(section);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,8 +90,6 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                                           context
                                               .read<MainPageCubit>()
                                               .updateSection('about');
-                                          context.router
-                                              .replaceNamed('/?section=about');
                                         },
                                       ),
                                     ),
@@ -114,8 +99,6 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                                         context
                                             .read<MainPageCubit>()
                                             .updateSection('blog');
-                                        context.router
-                                            .replaceNamed('/?section=blog');
                                       },
                                     ),
                                     LightDarkToggle(),
