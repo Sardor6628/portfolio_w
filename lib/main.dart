@@ -1,14 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logger/logger.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
+import 'package:website_p/bl/services/localization_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
 import 'package:website_p/services/router/route.dart';
 import 'package:website_p/services/storage/theme_storage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
 
   ThemeMode savedThemeMode;
   try {
@@ -19,8 +22,16 @@ void main() async {
   }
 
   final _appRouter = AppRouter();
-  runApp(MyApp(savedThemeMode: savedThemeMode, appRouter: _appRouter));
-}
+  runApp(EasyLocalization(
+    supportedLocales: const [
+      Locale('en'),
+      Locale('ko'),
+      Locale('ru'),
+    ],
+    path: 'assets/translation', // Path to your JSON translation files
+    fallbackLocale: const Locale('en'),
+    child: MyApp(savedThemeMode: savedThemeMode, appRouter: _appRouter),
+  ));}
 
 class MyApp extends StatelessWidget {
   final ThemeMode savedThemeMode;
@@ -46,6 +57,9 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {
           return MaterialApp.router(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             routerDelegate: appRouter.delegate(),
             routeInformationParser: appRouter.defaultRouteParser(),
             theme: ThemeData(
@@ -54,8 +68,6 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData(
               useMaterial3: true,
               scaffoldBackgroundColor: const Color(0xff272c35),
-
-              // Custom dark background
               brightness: Brightness.dark,
             ),
             themeMode: themeMode,

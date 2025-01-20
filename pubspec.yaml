@@ -45,6 +45,8 @@ dependencies:
   animated_text_kit: ^4.2.2
   glowy_borders: ^1.0.2
   flutter_animate: ^4.5.2
+  easy_localization: ^3.0.7
+  dropdown_button2: ^2.3.9
 
 
 dev_dependencies:
@@ -76,6 +78,7 @@ flutter:
     - assets/images/
     - assets/lotties/
     - assets/icons/
+    - assets/translation/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
