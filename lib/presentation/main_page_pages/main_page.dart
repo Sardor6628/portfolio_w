@@ -28,112 +28,114 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
   }
 
   /// Parses the current URL and initializes the section
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          alignment: Alignment.center,
-          child: ScrollConfiguration(
-            behavior:
-                ScrollConfiguration.of(context).copyWith(scrollbars: false),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(height: 32),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 800),
-                    child: BlocBuilder<MainPageCubit, MainPageState>(
-                      builder: (context, state) {
-                        if (state is MainPageInitial) {
-                          return Container(
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context)
-                                  .scaffoldBackgroundColor
-                                  .withOpacity(0.4),
-                              border: Border.all(
-                                  color: const Color(0xff3d424a), width: 1),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 8),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    HoverableRow(
-                                      onTap: () {
-                                        context
-                                            .read<MainPageCubit>()
-                                            .updateSection('');
-                                        context.router.replaceNamed('/');
-                                      },
-                                    ),
-                                    AnimatedTextWidget(
-                                      text: state.animatedText,
-                                      key: Key(state.animatedText),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    MouseRegion(
-                                      cursor: SystemMouseCursors.click,
-                                      child: HoverableTextButton(
-                                        label: 'About Me',
-                                        onPressed: () {
-                                          context
-                                              .read<MainPageCubit>()
-                                              .updateSection('about');
-                                        },
-                                      ),
-                                    ),
-                                    HoverableTextButton(
-                                      label: 'My Blog',
-                                      onPressed: () {
-                                        context
-                                            .read<MainPageCubit>()
-                                            .updateSection('blog');
-                                      },
-                                    ),
-                                    LightDarkToggle(),
-                                  ],
-                                ),
-
-                              ],
-                            ),
-                          );
-                        }
-                        return Container();
-                      },
-                    ),
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight,
+                    minWidth: constraints.maxWidth,
                   ),
-                  BlocBuilder<MainPageCubit, MainPageState>(
-                    builder: (context, state) {
-                      if (state is MainPageInitial) {
-                        return ConstrainedBox(
-                            constraints: BoxConstraints(
-                                minHeight:
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(height: 32),
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 800),
+                        child: BlocBuilder<MainPageCubit, MainPageState>(
+                          builder: (context, state) {
+                            if (state is MainPageInitial) {
+                              return Container(
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context)
+                                      .scaffoldBackgroundColor
+                                      .withOpacity(0.4),
+                                  border: Border.all(
+                                      color: const Color(0xff3d424a), width: 1),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 8),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        HoverableRow(
+                                          onTap: () {
+                                            context
+                                                .read<MainPageCubit>()
+                                                .updateSection('');
+                                            context.router.replaceNamed('/');
+                                          },
+                                        ),
+                                        AnimatedTextWidget(
+                                          text: state.animatedText,
+                                          key: Key(state.animatedText),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        MouseRegion(
+                                          cursor: SystemMouseCursors.click,
+                                          child: HoverableTextButton(
+                                            label: 'About Me',
+                                            onPressed: () {
+                                              context
+                                                  .read<MainPageCubit>()
+                                                  .updateSection('about');
+                                            },
+                                          ),
+                                        ),
+                                        HoverableTextButton(
+                                          label: 'My Blog',
+                                          onPressed: () {
+                                            context
+                                                .read<MainPageCubit>()
+                                                .updateSection('blog');
+                                          },
+                                        ),
+                                        LightDarkToggle(),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                            return Container();
+                          },
+                        ),
+                      ),
+                      BlocBuilder<MainPageCubit, MainPageState>(
+                        builder: (context, state) {
+                          if (state is MainPageInitial) {
+                            return ConstrainedBox(
+                                constraints: BoxConstraints(
+                                    minHeight:
                                     MediaQuery.of(context).size.height - 100),
-                            child: _buildSectionContent(state.currentSection));
-                      }
-                      return Container();
-                    },
+                                child: _buildSectionContent(state.currentSection));
+                          }
+                          return Container();
+                        },
+                      ),
+                    ],
                   ),
-
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           ),
         ),
       ),
     );
   }
-
   /// Dynamically renders content based on the current section
   Widget _buildSectionContent(String section) {
     switch (section) {

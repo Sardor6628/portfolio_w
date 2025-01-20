@@ -3,13 +3,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:glowy_borders/glowy_borders.dart';
-import 'package:lottie/lottie.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
 import 'package:website_p/constants/constant_variable.dart';
 import 'package:website_p/constants/image_path.dart';
-import 'package:website_p/presentation/main_page_pages/main_page.dart';
 import 'package:website_p/widgets/gradient_button_widget.dart';
 import 'package:website_p/widgets/rich_text_main_page_widget.dart';
 import 'package:website_p/widgets/text_widgets.dart';
@@ -71,7 +68,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                 Row(
                   children: [
                     Image.asset(ImagePath.logo, width: 24),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: 4),
                     Container(
                       height: 24,
                       alignment: Alignment.center,
@@ -80,12 +77,12 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                        "${DateTime.now().year.toString()} SardorDev Consulting, ",
+                        "${DateTime.now().year.toString()} SardorDev Consulting. ",
                         style: const TextStyle(
                           color: Color(0xff9ca3af),
                         )),
                     Text(
-                      "Have a nice ${ConstantVariables.weekDays[DateTime.now().weekday]}!",
+                      "${ConstantVariables.weekDays[DateTime.now().weekday]}".tr(),
                       style: const TextStyle(
                           color: Colors.pink, fontWeight: FontWeight.w700),
                     )
@@ -106,23 +103,6 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                         return DropdownButtonHideUnderline(
                           child: DropdownButton2<Locale>(
                             isExpanded: true,
-                            hint: const Row(
-                              children: [
-                                Icon(
-                                  Icons.language,
-                                  size: 16,
-                                ),
-                                SizedBox(
-                                  width: 4,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    'Select Language',
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
                             items: [
                               DropdownMenuItem(
                                 value: const Locale('en'),
@@ -154,7 +134,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                             },
                             buttonStyleData: ButtonStyleData(
                               height: 35,
-                              width: 160,
+                              width: 140,
                               padding:
                                   const EdgeInsets.only(left: 14, right: 14),
                               decoration: BoxDecoration(
@@ -179,7 +159,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                             ),
                             dropdownStyleData: DropdownStyleData(
                               maxHeight: 200,
-                              width: 200,
+                              width: 140,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
@@ -191,7 +171,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                                     ? Color(0xff131b2c)
                                     : Color(0xffe4e7eb),
                               ),
-                              offset: const Offset(-20, 0),
+                              offset: const Offset(0, -100),
                               scrollbarTheme: ScrollbarThemeData(
                                 radius: const Radius.circular(40),
                                 thickness: MaterialStateProperty.all(6),
