@@ -64,6 +64,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
             Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Row(
                   children: [
@@ -103,25 +104,25 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                         return DropdownButtonHideUnderline(
                           child: DropdownButton2<Locale>(
                             isExpanded: true,
-                            items: [
-                              DropdownMenuItem(
-                                value: const Locale('en'),
-                                child: const Text(
+                            items: const [
+                               DropdownMenuItem(
+                                value:  Locale('en'),
+                                child:  Text(
                                   'English',
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               DropdownMenuItem(
-                                value: const Locale('ko'),
-                                child: const Text(
-                                  'Korean',
+                                value:  Locale('ko'),
+                                child:  Text(
+                                  '한국어',
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               DropdownMenuItem(
-                                value: const Locale('ru'),
-                                child: const Text(
-                                  'Russian',
+                                value:  Locale('ru'),
+                                child:  Text(
+                                  'Русский',
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
@@ -133,7 +134,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                               }
                             },
                             buttonStyleData: ButtonStyleData(
-                              height: 35,
+                              height: 32,
                               width: 140,
                               padding:
                                   const EdgeInsets.only(left: 14, right: 14),
@@ -186,7 +187,8 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                           ),
                         );
                       },
-                    )
+                    ),
+
                   ],
                 )
               ],
