@@ -83,6 +83,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                             if (state is MainPageInitial) {
                               return Container(
                                 height: 60,
+                                margin: EdgeInsets.symmetric(horizontal: Responsive.isMobile(context)?16:0),
                                 decoration: BoxDecoration(
                                   color: Theme.of(context)
                                       .scaffoldBackgroundColor
