@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:website_p/presentation/about_me_page.dart';
 import 'package:website_p/presentation/main_page_pages/main_page.dart';
 import 'package:website_p/presentation/blog_page.dart';

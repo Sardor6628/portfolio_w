@@ -1,23 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
-import 'package:website_p/bl/theme/theme_cubit.dart';
-import 'package:website_p/constants/constant_variable.dart';
-import 'package:website_p/constants/image_path.dart';
-import 'package:website_p/constants/urls.dart';
 import 'package:website_p/presentation/main_page_pages/main_content.dart';
 import 'package:website_p/widgets/animated_text_widget.dart';
 import 'package:website_p/widgets/bottom_navigation_bar.dart';
-import 'package:website_p/widgets/lottie_hover_widget.dart';
 import 'package:website_p/widgets/theme_toggler.dart';
-
 import '../../bl/main/widgets/hover_custom_buttoms_widget.dart';
-import '../../constants/constant_colors.dart';
 
 var logger = Logger();
 

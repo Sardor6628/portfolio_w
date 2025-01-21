@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:glowy_borders/glowy_borders.dart';
 
 class GradientButtonWidget extends StatefulWidget {
-  GradientButtonWidget(
+  const GradientButtonWidget(
       {super.key,
       required this.isDarkMode,
       required this.widgetButton,
@@ -11,7 +11,7 @@ class GradientButtonWidget extends StatefulWidget {
       required this.color});
   final Function onTap;
   final bool isDarkMode;
-  Widget Function(Color color) widgetButton;
+  final Widget Function(Color color) widgetButton;
   final bool isTheme1;
   final Color color;
 

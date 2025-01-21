@@ -1,15 +1,8 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
-import 'package:website_p/constants/constant_variable.dart';
-import 'package:website_p/constants/image_path.dart';
-import 'package:website_p/constants/urls.dart';
 import 'package:website_p/widgets/gradient_button_widget.dart';
-import 'package:website_p/widgets/lottie_hover_widget.dart';
 import 'package:website_p/widgets/rich_text_main_page_widget.dart';
 import 'package:website_p/widgets/text_widgets.dart';
 

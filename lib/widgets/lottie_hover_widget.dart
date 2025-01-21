@@ -5,17 +5,19 @@ import 'package:url_launcher/url_launcher.dart';
 class LottieHoverWidget extends StatefulWidget {
   final String lottiePath;
   final String socialUrl;
-  double padding;
+  final double padding;
 
-   LottieHoverWidget({
-    Key? key,
+   const LottieHoverWidget({
+    super.key,
     required this.lottiePath,
     required this.socialUrl,
     this.padding = 0,
-  }) : super(key: key);
+  });
 
   @override
-  _LottieHoverWidgetState createState() => _LottieHoverWidgetState();
+  _LottieHoverWidgetState createState() {
+    return _LottieHoverWidgetState();
+  }
 }
 
 class _LottieHoverWidgetState extends State<LottieHoverWidget>
