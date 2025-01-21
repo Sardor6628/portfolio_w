@@ -210,7 +210,8 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
           ),
         );
       default:
-        return MainContentWidget();
+        // return MainContentWidget();
+        return AboutMePage();
     }
   }
 }

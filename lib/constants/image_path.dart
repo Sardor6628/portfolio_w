@@ -9,4 +9,6 @@ class ImagePath{
   static String get linkedInLogo => "assets/lotties/social/social2.json";
   static String get telegramLogo => "assets/lotties/social/social3.json";
   static String get facebookLogo => "assets/lotties/social/social4.json";
+  static String get developer => "assets/lotties/developer.json";
+  static String get meWorking => "assets/images/me-working2.gif";
  }
