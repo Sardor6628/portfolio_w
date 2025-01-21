@@ -7,7 +7,9 @@ import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/bl/theme/theme_cubit.dart';
 import 'package:website_p/constants/constant_variable.dart';
 import 'package:website_p/constants/image_path.dart';
+import 'package:website_p/constants/urls.dart';
 import 'package:website_p/widgets/gradient_button_widget.dart';
+import 'package:website_p/widgets/lottie_hover_widget.dart';
 import 'package:website_p/widgets/rich_text_main_page_widget.dart';
 import 'package:website_p/widgets/text_widgets.dart';
 
@@ -69,7 +71,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                 Row(
                   children: [
                     Image.asset(ImagePath.logo, width: 24),
-                    const SizedBox(width: 4),
+                    const SizedBox(width: 2),
                     Container(
                       height: 24,
                       alignment: Alignment.center,
@@ -83,7 +85,8 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                           color: Color(0xff9ca3af),
                         )),
                     Text(
-                      "${ConstantVariables.weekDays[DateTime.now().weekday]}".tr(),
+                      "${ConstantVariables.weekDays[DateTime.now().weekday]}"
+                          .tr(),
                       style: const TextStyle(
                           color: Colors.pink, fontWeight: FontWeight.w700),
                     )
@@ -105,23 +108,23 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                           child: DropdownButton2<Locale>(
                             isExpanded: true,
                             items: const [
-                               DropdownMenuItem(
-                                value:  Locale('en'),
-                                child:  Text(
+                              DropdownMenuItem(
+                                value: Locale('en'),
+                                child: Text(
                                   'English',
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               DropdownMenuItem(
-                                value:  Locale('ko'),
-                                child:  Text(
+                                value: Locale('ko'),
+                                child: Text(
                                   '한국어',
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
                               DropdownMenuItem(
-                                value:  Locale('ru'),
-                                child:  Text(
+                                value: Locale('ru'),
+                                child: Text(
                                   'Русский',
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -188,9 +191,22 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                         );
                       },
                     ),
-
+                    const SizedBox(width: 8),
+                    LottieHoverWidget(
+                        lottiePath: ImagePath.githubLogo,
+                        socialUrl: ConstantEndPoint.githubUrl),
+                    LottieHoverWidget(
+                        padding: 3,
+                        lottiePath: ImagePath.linkedInLogo,
+                        socialUrl: ConstantEndPoint.linkedInUrl),
+                    LottieHoverWidget(
+                        lottiePath: ImagePath.telegramLogo,
+                        socialUrl: ConstantEndPoint.telegramUrl),
+                    LottieHoverWidget(
+                        lottiePath: ImagePath.facebookLogo,
+                        socialUrl: ConstantEndPoint.facebookUrl),
                   ],
-                )
+                ),
               ],
             ),
             const SizedBox(height: 20),

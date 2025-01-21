@@ -47,6 +47,7 @@ dependencies:
   flutter_animate: ^4.5.2
   easy_localization: ^3.0.7
   dropdown_button2: ^2.3.9
+  url_launcher: ^6.3.1
 
 
 dev_dependencies:
@@ -77,6 +78,7 @@ flutter:
   assets:
     - assets/images/
     - assets/lotties/
+    - assets/lotties/social/
     - assets/icons/
     - assets/translation/
 
