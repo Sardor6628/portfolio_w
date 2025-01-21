@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:website_p/constants/image_path.dart';
+import 'package:website_p/widgets/responsive.dart';
 List<String> lottieAssets = [
   ImagePath.markLottieMain1,
   ImagePath.markLottieMain2,
@@ -19,7 +20,8 @@ Row titleWidgetWithHand(BuildContext context) {
           constraints: const BoxConstraints(minWidth: 200, maxWidth: 750),
           child: Text(
             "bringing_ideas_to_life".tr(),
-            maxLines: 2,
+            maxLines: Responsive.isMobile(context)?3:2,
+            textAlign: TextAlign.justify,
             overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.headlineLarge?.copyWith(
               color: Colors.blue,

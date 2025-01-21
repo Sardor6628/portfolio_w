@@ -21,13 +21,4 @@ class MainPageCubit extends Cubit<MainPageState> {
     ));
   }
 
-  void hoverStart() {
-    final currentState = state as MainPageInitial;
-    emit(currentState.copyWith(isHovered: true));
-  }
-
-  void hoverEnd() {
-    final currentState = state as MainPageInitial;
-    emit(currentState.copyWith(isHovered: false));
-  }
 }
