@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
+import 'package:website_p/presentation/about-me/about_me_page.dart';
 import 'package:website_p/presentation/main_page_pages/main_content.dart';
 import 'package:website_p/widgets/animated_text_widget.dart';
 import 'package:website_p/widgets/bottom_navigation_bar.dart';
@@ -200,12 +201,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
   Widget _buildSectionContent(String section) {
     switch (section) {
       case 'about':
-        return const Center(
-          child: Text(
-            'PLACE FOR ABOUT ME',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        );
+        return AboutMePage();
       case 'blog':
         return const Center(
           child: Text(
