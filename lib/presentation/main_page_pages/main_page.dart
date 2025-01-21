@@ -6,6 +6,7 @@ import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/presentation/main_page_pages/main_content.dart';
 import 'package:website_p/widgets/animated_text_widget.dart';
 import 'package:website_p/widgets/bottom_navigation_bar.dart';
+import 'package:website_p/widgets/responsive.dart';
 import 'package:website_p/widgets/theme_toggler.dart';
 import '../../bl/main/widgets/hover_custom_buttoms_widget.dart';
 
@@ -29,6 +30,37 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              child: Text(
+                'SardorDev Consulting',
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person_outline, color: Colors.blue,),
+              title: Text('About Me'),
+              onTap: () {
+                Navigator.pop(context);
+                context.read<MainPageCubit>().updateSection('about');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.book, color: Colors.blue,),
+              title: Text('My Blog'),
+              onTap: () {
+                Navigator.pop(context);
+                context.read<MainPageCubit>().updateSection('blog');
+              },
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
@@ -83,24 +115,48 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                                     ),
                                     Row(
                                       children: [
-                                        MouseRegion(
-                                          cursor: SystemMouseCursors.click,
-                                          child: HoverableTextButton(
-                                            label: 'About Me',
-                                            onPressed: () {
-                                              context
-                                                  .read<MainPageCubit>()
-                                                  .updateSection('about');
-                                            },
+                                        Visibility(
+                                          visible:
+                                              Responsive.isDesktop(context) ||
+                                                  Responsive.isTablet(context),
+                                          child: Row(
+                                            children: [
+                                              MouseRegion(
+                                                cursor:
+                                                    SystemMouseCursors.click,
+                                                child: HoverableTextButton(
+                                                  label: 'About Me',
+                                                  onPressed: () {
+                                                    context
+                                                        .read<MainPageCubit>()
+                                                        .updateSection('about');
+                                                  },
+                                                ),
+                                              ),
+                                              HoverableTextButton(
+                                                label: 'My Blog',
+                                                onPressed: () {
+                                                  context
+                                                      .read<MainPageCubit>()
+                                                      .updateSection('blog');
+                                                },
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                        HoverableTextButton(
-                                          label: 'My Blog',
-                                          onPressed: () {
-                                            context
-                                                .read<MainPageCubit>()
-                                                .updateSection('blog');
-                                          },
+                                        Visibility(
+                                          visible: Responsive.isMobile(context),
+                                          child: Builder(
+                                            builder: (context) {
+                                              return IconButton(
+                                                icon: Icon(Icons.menu),
+                                                onPressed: () {
+                                                  Scaffold.of(context)
+                                                      .openDrawer();
+                                                },
+                                              );
+                                            },
+                                          ),
                                         ),
                                         LightDarkToggle(),
                                       ],
@@ -161,4 +217,3 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
     }
   }
 }
-
