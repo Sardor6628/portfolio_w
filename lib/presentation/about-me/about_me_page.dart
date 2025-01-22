@@ -14,7 +14,7 @@ class _AboutMePageState extends State<AboutMePage> {
     return ConstrainedBox(constraints: BoxConstraints(maxWidth: 800),
     child: Column(
       children: [
-        bodyTextWidget(context)
+        BodyTextWidget()
       ],
     ),
     );

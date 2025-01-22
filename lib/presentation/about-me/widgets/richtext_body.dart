@@ -2,33 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:website_p/constants/image_path.dart';
 
-Widget bodyTextWidget(BuildContext context) {
-  return Builder(
-    key: ValueKey<String>(Localizations.localeOf(context).languageCode),
-    builder: (context) {
-      if (Localizations.localeOf(context).languageCode == 'ko') {
-        return bodyTextWidgetKorean();
-      } else if (Localizations.localeOf(context).languageCode == 'ru') {
-        return bodyTextWidgetRussian();
-      } else {
-        return bodyTextWidgetEnglish();
-      }
-    },
-  );
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:website_p/constants/image_path.dart';
+
+class BodyTextWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    String languageCode = Localizations.localeOf(context).languageCode;
+
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      switchInCurve: Curves.easeIn,
+      switchOutCurve: Curves.easeOut,
+      child: Builder(
+        key: ValueKey<String>(languageCode),
+        builder: (context) {
+          if (languageCode == 'ko') {
+            return bodyTextWidgetKorean();
+          } else if (languageCode == 'ru') {
+            return bodyTextWidgetRussian();
+          } else {
+            return bodyTextWidgetEnglish();
+          }
+        },
+      ),
+    );
+  }
 }
 
+// Your existing bodyTextWidgetEnglish, bodyTextWidgetRussian, and bodyTextWidgetKorean functions
 Widget bodyTextWidgetEnglish() {
-  // Your implementation for English text goes here.
   return RichTextBodyEnglish();
 }
 
 Widget bodyTextWidgetRussian() {
-  // Your implementation for Russian text goes here.
   return RichTextBodyRussian();
 }
 
 Widget bodyTextWidgetKorean() {
-  // Your implementation for Korean text goes here.
   return RichTextBodyKorean();
 }
 
