@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:website_p/constants/image_path.dart';
 
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:website_p/constants/image_path.dart';
-
 class BodyTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
