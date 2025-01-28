@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:website_p/constants/image_path.dart';
 import 'package:website_p/presentation/about-me/widgets/richtext_body.dart';
 import 'package:website_p/widgets/expandable.dart';
 
@@ -69,7 +70,7 @@ final controller = ExpandableController();
               child: Container(
                 child: Row(
                   children: [
-                    Image.asset("name"),
+                    Image.asset(ImagePath.ronfic, height: 50),
                     Text(
                       "This is the collapsed state.",
                       softWrap: true,
