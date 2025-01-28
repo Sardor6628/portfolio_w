@@ -10,5 +10,8 @@ class ImagePath{
   static String get telegramLogo => "assets/lotties/social/social3.json";
   static String get facebookLogo => "assets/lotties/social/social4.json";
   static String get developer => "assets/lotties/developer.json";
-  static String get meWorking => "assets/images/me-working2.gif";
+  static String get ronfic => "assets/images/companies/ronfic.png";
+  static String get tezbor => "assets/images/companies/tezbor.png";
+  static String get dsu => "assets/images/companies/dsu.png";
+  static String get pnu => "assets/images/companies/pnu.png";
  }
