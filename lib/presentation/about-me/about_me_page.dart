@@ -36,7 +36,7 @@ class _AboutMePageState extends State<AboutMePage> {
 }
 
 class expandableWidget extends StatefulWidget {
-   expandableWidget({
+  expandableWidget({
     super.key,
   });
 
@@ -45,7 +45,8 @@ class expandableWidget extends StatefulWidget {
 }
 
 class _expandableWidgetState extends State<expandableWidget> {
-final controller = ExpandableController();
+  final controller = ExpandableController();
+
   @override
   Widget build(BuildContext context) {
     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -55,9 +56,7 @@ final controller = ExpandableController();
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: isDarkMode
-            ? const Color(0xff1d2224)
-            : const Color(0xffe7eef4),
+        color: isDarkMode ? const Color(0xff1d2224) : const Color(0xffe7eef4),
       ),
       child: ExpandableNotifier(
         controller: controller,
@@ -70,19 +69,60 @@ final controller = ExpandableController();
               child: Container(
                 child: Row(
                   children: [
-                    Image.asset(ImagePath.ronfic, height: 50),
-                    Text(
-                      "This is the collapsed state.",
-                      softWrap: true,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                    Container(
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.white),
+                        child: Image.asset(ImagePath.ronfic, height: 50)),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Ronfic Co Ltd",
+                            softWrap: true,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Software Engineer",
+                            softWrap: true,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                          Text(
+                            "Busan, South Korea",
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(height: 1),
+                          ),
+                        ],
+                      ),
                     ),
+                    const SizedBox(width: 16),
+                    Column(
+                      children: [
+                        Text("July 2021 - Present",
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        Text("${}",
+                            style: Theme.of(context).textTheme.bodyMedium),
+                      ],
+                    )
                   ],
                 ),
               ),
             ),
             expanded: InkWell(
-             onTap: () {
+              onTap: () {
                 controller.toggle();
               },
               child: Container(
