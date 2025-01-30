@@ -8,6 +8,26 @@
   "have_a_great_friday": "Have a great Friday!",
   "have_a_great_saturday": "Have a great Saturday!",
   "have_a_great_sunday": "Have a great Sunday!",
-  "experience": "Experience"
-
+  "experience": "Experience",
+  "ronfic_desc": "As a software developer, I specialize in designing and building cross-platform mobile applications using Flutter, ensuring high performance and maintainability. I collaborate with cross-functional teams to develop scalable solutions, troubleshoot complex issues, and optimize applications for efficiency. My role includes leading code reviews, integrating third-party APIs, and staying updated on emerging technologies to enhance development practices. I also work closely with clients to translate business needs into technical solutions, contributing to the full software development lifecycle from planning to deployment.",
+  "present": "Present",
+  "year": " year",
+  "years": " years",
+  "months": " months",
+  "month": " month",
+  "january": "January",
+  "february": "February",
+  "march": "March",
+  "april": "April",
+  "may": "May",
+  "june": "June",
+  "july": "July",
+  "august": "August",
+  "september": "September",
+  "october": "October",
+  "november": "November",
+  "december": "December",
+  "year_extended": " Year",
+  "busan_south_korea": "Busan, South Korea",
+  "ronfic": "Ronfic Co Ltd"
 }

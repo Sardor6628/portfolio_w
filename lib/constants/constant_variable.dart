@@ -8,4 +8,18 @@ class ConstantVariables{
     "have_a_great_saturday",
     "have_a_great_sunday"
   ];
+  List<String> months = ["",
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december"
+  ];
 }

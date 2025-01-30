@@ -8,6 +8,26 @@
   "have_a_great_friday": "멋진 금요일 보내세요!",
   "have_a_great_saturday": "멋진 토요일 보내세요!",
   "have_a_great_sunday": "멋진 일요일 보내세요!",
-  "experience": "경험"
-
+  "experience": "경험",
+  "ronfic_desc": "Flutter를 활용하여 크로스플랫폼 모바일 애플리케이션을 개발 및 최적화하며, 성능과 유지보수성을 고려한 아키텍처 설계를 담당합니다. REST API, Firebase 등 다양한 외부 서비스와의 연동을 수행하며, 코드 리뷰 및 디버깅을 통해 애플리케이션의 안정성을 향상시킵니다. 또한, 클라이언트 및 팀과 긴밀히 협력하여 비즈니스 요구사항을 반영한 솔루션을 개발하고, 기획부터 배포 및 유지보수까지 전 개발 프로세스에 참여하고 있습니다.",
+  "present": "현재",
+  "year": "년",
+  "years": "년",
+  "month": "개월",
+  "months": "개월",
+  "january": "1월",
+  "february": "2월",
+  "march": "3월",
+  "april": "4월",
+  "may": "5월",
+  "june": "6월",
+  "july": "7월",
+  "august": "8월",
+  "september": "9월",
+  "october": "10월",
+  "november": "11월",
+  "december": "12월",
+  "year_extended": "년",
+  "busan_south_korea": "대한민국 부산",
+  "ronfic": "주식회사 론픽"
 }
