@@ -29,5 +29,16 @@
   "december": "December",
   "year_extended": " Year",
   "busan_south_korea": "Busan, South Korea",
-  "ronfic": "Ronfic Co Ltd"
+  "ronfic": "Ronfic Co Ltd",
+  "compass_x": "Compass X Co Ltd",
+  "namangan_uzbekistan": "Namangan, Uzbekistan",
+  "compass_x_desc":"As a Flutter Developer, I designed and developed high-performance mobile applications using the Flutter framework, focusing on scalability and maintainability. I collaborated closely with designers, backend developers, and stakeholders to deliver feature-rich applications on time. My responsibilities included writing efficient, well-structured code, implementing robust debugging and testing strategies, and optimizing app performance. I conducted code reviews, ensured best practices in development, and stayed updated with emerging technologies. Additionally, I provided technical guidance to clients, aligning solutions with business needs, and played a key role in the entire development lifecycle, from ideation to deployment.",
+  "dongseo_university": "Dongseo University",
+  "dsu_exp1": "Mentored junior students in C++ programming, providing guidance on core concepts, best practices, and algorithmic problem-solving. Assisted in debugging, optimizing code, and building projects, helping students develop strong logical thinking and coding proficiency.",
+  "dsu_exp2": "Assisted in delivering the “Raspberry Pi and IoT” course by supporting both lectures and hands-on lab sessions, helping students grasp IoT concepts, hardware integration, and practical implementation.",
+  "dsu_exp3": "Oversaw the management and regular updates of the center’s official website, ensuring content accuracy, functionality, and seamless user experience.",
+  "dsu_exp4": "Provided guidance to junior students in learning and developing proficiency in C++ programming, focusing on fundamental concepts, problem-solving, and best coding practices.",
+  "dsu_exp5": "Served as a liaison between the office and students, facilitating clear communication, addressing concerns, and ensuring smooth coordination while effectively leading the group."
+
+
 }
