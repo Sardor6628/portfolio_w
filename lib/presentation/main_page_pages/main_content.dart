@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_p/bl/main/main_page_cubit.dart';
-import 'package:website_p/bl/theme/theme_cubit.dart';
-import 'package:website_p/widgets/gradient_button_widget.dart';
-import 'package:website_p/widgets/rich_text_main_page_widget.dart';
-import 'package:website_p/widgets/text_widgets.dart';
+import 'package:sardordev_consulting/bl/main/main_page_cubit.dart';
+import 'package:sardordev_consulting/bl/theme/theme_cubit.dart';
+import 'package:sardordev_consulting/widgets/gradient_button_widget.dart';
+import 'package:sardordev_consulting/widgets/rich_text_main_page_widget.dart';
+import 'package:sardordev_consulting/widgets/text_widgets.dart';
 
 class MainContentWidget extends StatefulWidget {
   const MainContentWidget({super.key});

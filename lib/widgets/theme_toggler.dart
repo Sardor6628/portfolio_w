@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_p/bl/theme/theme_cubit.dart';
+import 'package:sardordev_consulting/bl/theme/theme_cubit.dart';
 
 class LightDarkToggle extends StatefulWidget {
   @override

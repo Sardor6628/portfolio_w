@@ -3,12 +3,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_p/bl/theme/theme_cubit.dart';
-import 'package:website_p/constants/constant_variable.dart';
-import 'package:website_p/constants/image_path.dart';
-import 'package:website_p/constants/urls.dart';
-import 'package:website_p/widgets/lottie_hover_widget.dart';
-import 'package:website_p/widgets/responsive.dart';
+import 'package:sardordev_consulting/bl/theme/theme_cubit.dart';
+import 'package:sardordev_consulting/constants/constant_variable.dart';
+import 'package:sardordev_consulting/constants/image_path.dart';
+import 'package:sardordev_consulting/constants/urls.dart';
+import 'package:sardordev_consulting/widgets/lottie_hover_widget.dart';
+import 'package:sardordev_consulting/widgets/responsive.dart';
 class bottomNavBar extends StatefulWidget {
   const bottomNavBar({
     super.key,

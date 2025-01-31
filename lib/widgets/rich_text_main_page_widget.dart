@@ -2,8 +2,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:website_p/constants/image_path.dart';
-import 'package:website_p/widgets/responsive.dart';
+import 'package:sardordev_consulting/constants/image_path.dart';
+import 'package:sardordev_consulting/widgets/responsive.dart';
 List<String> lottieAssets = [
   ImagePath.markLottieMain1,
   ImagePath.markLottieMain2,

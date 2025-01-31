@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:website_p/constants/global_method.dart';
-import 'package:website_p/constants/image_path.dart';
-import 'package:website_p/constants/urls.dart';
-import 'package:website_p/presentation/about-me/widgets/education_information.dart';
-import 'package:website_p/presentation/about-me/widgets/experience_info_widget_reusable.dart';
-import 'package:website_p/presentation/about-me/widgets/richtext_body.dart';
-import 'package:website_p/widgets/expandable.dart';
-import 'package:website_p/widgets/responsive.dart';
+import 'package:sardordev_consulting/constants/global_method.dart';
+import 'package:sardordev_consulting/constants/image_path.dart';
+import 'package:sardordev_consulting/constants/urls.dart';
+import 'package:sardordev_consulting/presentation/about-me/widgets/education_information.dart';
+import 'package:sardordev_consulting/presentation/about-me/widgets/experience_info_widget_reusable.dart';
+import 'package:sardordev_consulting/presentation/about-me/widgets/richtext_body.dart';
+import 'package:sardordev_consulting/widgets/expandable.dart';
+import 'package:sardordev_consulting/widgets/responsive.dart';
 
 class AboutMePage extends StatefulWidget {
   const AboutMePage({super.key});

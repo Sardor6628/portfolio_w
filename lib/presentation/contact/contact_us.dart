@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:website_p/constants/image_path.dart';
-import 'package:website_p/constants/urls.dart';
-import 'package:website_p/widgets/lottie_hover_widget.dart';
+import 'package:sardordev_consulting/constants/image_path.dart';
+import 'package:sardordev_consulting/constants/urls.dart';
+import 'package:sardordev_consulting/widgets/lottie_hover_widget.dart';
 
 class ContactUsPage extends StatefulWidget {
   const ContactUsPage({super.key});

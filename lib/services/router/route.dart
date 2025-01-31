@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:website_p/presentation/about_me_page.dart';
-import 'package:website_p/presentation/main_page_pages/main_page.dart';
-import 'package:website_p/presentation/blog_page.dart';
+import 'package:sardordev_consulting/presentation/about_me_page.dart';
+import 'package:sardordev_consulting/presentation/main_page_pages/main_page.dart';
+import 'package:sardordev_consulting/presentation/blog_page.dart';
 
 part 'route.gr.dart';
 

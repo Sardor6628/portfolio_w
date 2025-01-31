@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:website_p/constants/global_method.dart';
-import 'package:website_p/widgets/expandable.dart';
-import 'package:website_p/widgets/responsive.dart';
+import 'package:sardordev_consulting/constants/global_method.dart';
+import 'package:sardordev_consulting/widgets/expandable.dart';
+import 'package:sardordev_consulting/widgets/responsive.dart';
 
 class EducationInformationWidget extends StatefulWidget {
   final String universityName;

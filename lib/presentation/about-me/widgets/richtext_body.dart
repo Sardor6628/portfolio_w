@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:website_p/constants/image_path.dart';
+import 'package:sardordev_consulting/constants/image_path.dart';
+import 'package:sardordev_consulting/widgets/responsive.dart';
 
 class BodyTextWidget extends StatelessWidget {
   @override
@@ -40,7 +41,6 @@ Widget bodyTextWidgetKorean() {
   return RichTextBodyKorean();
 }
 
-
 class RichTextBodyEnglish extends StatelessWidget {
   RichTextBodyEnglish({
     super.key,
@@ -59,43 +59,74 @@ class RichTextBodyEnglish extends StatelessWidget {
           ?.copyWith(height: 2, fontWeight: FontWeight.bold);
       return Column(
         children: [
-          Container(
-            width: double.infinity,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Sardor Ibrokhimov (Sam)",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge
-                            ?.copyWith(fontWeight: FontWeight.bold, fontSize: 40),
-                      ),
-                      RichText(
-                          text: TextSpan(
-                              text: "Software Developer ",
-                              style: Theme.of(context).textTheme.titleLarge,
-                              children: [
-                            TextSpan(
-                                text: " in Busan",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(fontWeight: FontWeight.bold)),
-                          ]))
-                    ],
-                  ),
-                  Lottie.asset(ImagePath.developer, width: 230)
-                ],
+          Responsive(
+              desktop: Container(
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Sardor Ibrokhimov (Sam)",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(
+                                  fontWeight: FontWeight.bold, fontSize: 40),
+                        ),
+                        RichText(
+                            text: TextSpan(
+                                text: "Software Developer ",
+                                style: Theme.of(context).textTheme.titleLarge,
+                                children: [
+                              TextSpan(
+                                  text: " in Busan",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleLarge
+                                      ?.copyWith(fontWeight: FontWeight.bold)),
+                            ]))
+                      ],
+                    ),
+                    Lottie.asset(ImagePath.developer, width: 230)
+                  ],
+                ),
               ),
-            ),
-          ),
+              mobile: Container(
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Sardor Ibrokhimov (Sam)",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge
+                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 24),
+                    ),
+                    RichText(
+                        text: TextSpan(
+                            text: "Software Developer ",
+                            style: Theme.of(context).textTheme.titleLarge,
+                            children: [
+                          TextSpan(
+                              text: " in Busan",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(fontWeight: FontWeight.bold)),
+                        ])),
+                    Container(
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        child: Lottie.asset(ImagePath.developer, width: 230))
+                  ],
+                ),
+              )),
           RichText(
             textAlign: TextAlign.justify,
             text: TextSpan(
@@ -254,27 +285,29 @@ class RichTextBodyRussian extends StatelessWidget {
           ?.copyWith(height: 2, fontWeight: FontWeight.bold);
       return Column(
         children: [
-          Container(
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          Responsive(
+              desktop: Container(
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Сардор Иброхимов (Сэм)",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleLarge
-                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 40),
-                    ),
-                    RichText(
-                        text: TextSpan(
-                            text: "Software Developer,",
-                            style: Theme.of(context).textTheme.titleLarge,
-                            children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Сардор Иброхимов (Сэм)",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(
+                                  fontWeight: FontWeight.bold, fontSize: 40),
+                        ),
+                        RichText(
+                            text: TextSpan(
+                                text: "Software Developer,",
+                                style: Theme.of(context).textTheme.titleLarge,
+                                children: [
                               TextSpan(
                                   text: " Busan",
                                   style: Theme.of(context)
@@ -282,12 +315,44 @@ class RichTextBodyRussian extends StatelessWidget {
                                       .titleLarge
                                       ?.copyWith(fontWeight: FontWeight.bold)),
                             ]))
+                      ],
+                    ),
+                    Lottie.asset(ImagePath.developer, width: 230)
                   ],
                 ),
-                Lottie.asset(ImagePath.developer, width: 230)
-              ],
-            ),
-          ),
+              ),
+              mobile: Container(
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Сардор Иброхимов (Сэм)",
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge
+                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 24),
+                    ),
+                    RichText(
+                        text: TextSpan(
+                            text: "Software Developer ",
+                            style: Theme.of(context).textTheme.titleLarge,
+                            children: [
+                          TextSpan(
+                              text: " in Busan",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(fontWeight: FontWeight.bold)),
+                        ])),
+                    Container(
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        child: Lottie.asset(ImagePath.developer, width: 230))
+                  ],
+                ),
+              )),
           RichText(
             textAlign: TextAlign.justify,
             text: TextSpan(
@@ -313,7 +378,7 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  ', и я опытный разработчик с многолетним опытом создания надёжных и удобных приложений. Моя специализация — разработка мобильных приложений на Flutter для iOS и Android, а также создание серверных решений, которые обеспечивают масштабируемость и эффективность.\n\n',
+                      ', и я опытный разработчик с многолетним опытом создания надёжных и удобных приложений. Моя специализация — разработка мобильных приложений на Flutter для iOS и Android, а также создание серверных решений, которые обеспечивают масштабируемость и эффективность.\n\n',
                 ),
                 TextSpan(
                   text: 'Техническая экспертиза:\n',
@@ -330,7 +395,7 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'Flutter (Bloc, Cubit, Provider, Riverpod, GetX), Firebase, FastAPI, SQLAlchemy\n',
+                      'Flutter (Bloc, Cubit, Provider, Riverpod, GetX), Firebase, FastAPI, SQLAlchemy\n',
                 ),
                 TextSpan(
                   text: '• Базы данных: ',
@@ -343,14 +408,14 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                     text:
-                    'AWS, DigitalOcean, Crashlytics, Firebase Analytics, OpenCV, MediaPipe\n'),
+                        'AWS, DigitalOcean, Crashlytics, Firebase Analytics, OpenCV, MediaPipe\n'),
                 TextSpan(
                   text: '• Инструменты: ',
                   style: boldStyle,
                 ),
                 TextSpan(
                     text:
-                    'Git, GitHub, GitLab, GitHub Actions, Flutter Codemagic, Docker (базовые знания)\n'),
+                        'Git, GitHub, GitLab, GitHub Actions, Flutter Codemagic, Docker (базовые знания)\n'),
                 TextSpan(
                   text: '• UI/UX: ',
                   style: boldStyle,
@@ -367,7 +432,7 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'Разработал чат-ботов с использованием OpenAI для специфических задач, таких как поддержка клиентов и автоматизация call-центров, с использованием FastAPI, WebSocket, Flutter и моделей ИИ.\n',
+                      'Разработал чат-ботов с использованием OpenAI для специфических задач, таких как поддержка клиентов и автоматизация call-центров, с использованием FastAPI, WebSocket, Flutter и моделей ИИ.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -376,7 +441,7 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'Создал и участвовал в разработке более 10 приложений, доступных в магазинах приложений, с акцентом на качество и удобство.\n',
+                      'Создал и участвовал в разработке более 10 приложений, доступных в магазинах приложений, с акцентом на качество и удобство.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -385,7 +450,7 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'Реализовал несколько веб-приложений, разрабатывая как серверную, так и клиентскую части.\n',
+                      'Реализовал несколько веб-приложений, разрабатывая как серверную, так и клиентскую части.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -394,7 +459,7 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'Руководил и участвовал в различных проектах, наставлял младших разработчиков и создавал надёжные решения для клиентов.\n',
+                      'Руководил и участвовал в различных проектах, наставлял младших разработчиков и создавал надёжные решения для клиентов.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -403,7 +468,7 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'В рамках магистратуры провёл исследования, опубликовал несколько статей, одна из которых получила награду за выдающуюся работу от Корейского общества обработки информации.\n',
+                      'В рамках магистратуры провёл исследования, опубликовал несколько статей, одна из которых получила награду за выдающуюся работу от Корейского общества обработки информации.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -412,11 +477,11 @@ class RichTextBodyRussian extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'Сотрудничал с разработчиками из разных стран, совместно работая над инновационными проектами.\n\n',
+                      'Сотрудничал с разработчиками из разных стран, совместно работая над инновационными проектами.\n\n',
                 ),
                 TextSpan(
                   text:
-                  'Спасибо за внимание! Буду рад новым проектам и интересному сотрудничеству!\n',
+                      'Спасибо за внимание! Буду рад новым проектам и интересному сотрудничеству!\n',
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ],
@@ -446,13 +511,39 @@ class RichTextBodyKorean extends StatelessWidget {
           ?.copyWith(height: 2, fontWeight: FontWeight.bold);
       return Column(
         children: [
-          Container(
-            width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
+          Responsive(
+              desktop: Container(
+                width: double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "이브로히모브 사르도르 (샘)",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(
+                                  fontWeight: FontWeight.bold, fontSize: 40),
+                        ),
+                        RichText(
+                            text: TextSpan(
+                                text: "부산 기반 소프트웨어 개발자",
+                                style: Theme.of(context).textTheme.titleLarge,
+                                children: []))
+                      ],
+                    ),
+                    Lottie.asset(ImagePath.developer, width: 230)
+                  ],
+                ),
+              ),
+              mobile: Container(
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -460,19 +551,20 @@ class RichTextBodyKorean extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge
-                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 40),
+                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 24),
                     ),
                     RichText(
                         text: TextSpan(
                             text: "부산 기반 소프트웨어 개발자",
                             style: Theme.of(context).textTheme.titleLarge,
                             children: []))
+                    ,Container(
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        child: Lottie.asset(ImagePath.developer, width: 230))
                   ],
                 ),
-                Lottie.asset(ImagePath.developer, width: 230)
-              ],
-            ),
-          ),
+              )),
           RichText(
             textAlign: TextAlign.justify,
             text: TextSpan(
@@ -498,7 +590,7 @@ class RichTextBodyKorean extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  '이라고 불립니다. 저는 안정적이고 사용자 친화적인 애플리케이션을 개발하는 데 풍부한 경험을 가진 소프트웨어 개발자입니다. 특히 iOS 및 Android 플랫폼을 위한 Flutter 개발과 확장성과 효율성을 갖춘 백엔드 솔루션 설계에 전문성을 보유하고 있습니다.\n\n',
+                      '이라고 불립니다. 저는 안정적이고 사용자 친화적인 애플리케이션을 개발하는 데 풍부한 경험을 가진 소프트웨어 개발자입니다. 특히 iOS 및 Android 플랫폼을 위한 Flutter 개발과 확장성과 효율성을 갖춘 백엔드 솔루션 설계에 전문성을 보유하고 있습니다.\n\n',
                 ),
                 TextSpan(
                   text: '기술 역량:\n',
@@ -515,7 +607,7 @@ class RichTextBodyKorean extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'Flutter (Bloc, Cubit, Provider, Riverpod, GetX), Firebase, FastAPI, SQLAlchemy\n',
+                      'Flutter (Bloc, Cubit, Provider, Riverpod, GetX), Firebase, FastAPI, SQLAlchemy\n',
                 ),
                 TextSpan(
                   text: '• 데이터베이스: ',
@@ -528,14 +620,14 @@ class RichTextBodyKorean extends StatelessWidget {
                 ),
                 TextSpan(
                     text:
-                    'AWS, DigitalOcean, Crashlytics, Firebase Analytics, OpenCV, MediaPipe\n'),
+                        'AWS, DigitalOcean, Crashlytics, Firebase Analytics, OpenCV, MediaPipe\n'),
                 TextSpan(
                   text: '• 도구: ',
                   style: boldStyle,
                 ),
                 TextSpan(
                     text:
-                    'Git, GitHub, GitLab, GitHub Actions, Flutter Codemagic, Docker (기본 이해)\n'),
+                        'Git, GitHub, GitLab, GitHub Actions, Flutter Codemagic, Docker (기본 이해)\n'),
                 TextSpan(
                   text: '• UI/UX: ',
                   style: boldStyle,
@@ -552,7 +644,7 @@ class RichTextBodyKorean extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  'FastAPI, WebSocket, Flutter 및 AI 모델을 활용하여 고객 지원 및 콜센터 자동화를 위한 OpenAI 기반 챗봇을 설계 및 개발.\n',
+                      'FastAPI, WebSocket, Flutter 및 AI 모델을 활용하여 고객 지원 및 콜센터 자동화를 위한 OpenAI 기반 챗봇을 설계 및 개발.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -560,8 +652,7 @@ class RichTextBodyKorean extends StatelessWidget {
                   style: boldStyle,
                 ),
                 TextSpan(
-                  text:
-                  '10개 이상의 고품질 애플리케이션을 개발 및 스토어에 출시.\n',
+                  text: '10개 이상의 고품질 애플리케이션을 개발 및 스토어에 출시.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -569,8 +660,7 @@ class RichTextBodyKorean extends StatelessWidget {
                   style: boldStyle,
                 ),
                 TextSpan(
-                  text:
-                  '백엔드와 프론트엔드를 포함한 다양한 웹 애플리케이션 설계 및 구현.\n',
+                  text: '백엔드와 프론트엔드를 포함한 다양한 웹 애플리케이션 설계 및 구현.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -579,7 +669,7 @@ class RichTextBodyKorean extends StatelessWidget {
                 ),
                 TextSpan(
                   text:
-                  '다양한 프리랜스 프로젝트를 주도하며, 주니어 개발자를 멘토링하고 신뢰할 수 있는 솔루션 제공.\n',
+                      '다양한 프리랜스 프로젝트를 주도하며, 주니어 개발자를 멘토링하고 신뢰할 수 있는 솔루션 제공.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -587,8 +677,7 @@ class RichTextBodyKorean extends StatelessWidget {
                   style: boldStyle,
                 ),
                 TextSpan(
-                  text:
-                  '석사 과정 중 여러 논문을 발표, 그중 하나는 한국정보처리학회에서 우수 논문으로 선정됨.\n',
+                  text: '석사 과정 중 여러 논문을 발표, 그중 하나는 한국정보처리학회에서 우수 논문으로 선정됨.\n',
                 ),
                 TextSpan(text: '• '),
                 TextSpan(
@@ -596,12 +685,10 @@ class RichTextBodyKorean extends StatelessWidget {
                   style: boldStyle,
                 ),
                 TextSpan(
-                  text:
-                  '전 세계의 개발자들과 협업하며 혁신적인 프로젝트를 성공적으로 실행.\n\n',
+                  text: '전 세계의 개발자들과 협업하며 혁신적인 프로젝트를 성공적으로 실행.\n\n',
                 ),
                 TextSpan(
-                  text:
-                  '읽어 주셔서 감사합니다! 새로운 프로젝트와 협력을 기대합니다!\n',
+                  text: '읽어 주셔서 감사합니다! 새로운 프로젝트와 협력을 기대합니다!\n',
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ],

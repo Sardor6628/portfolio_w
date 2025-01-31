@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:website_p/constants/global_method.dart';
-import 'package:website_p/widgets/expandable.dart';
-import 'package:website_p/widgets/responsive.dart';
+import 'package:sardordev_consulting/constants/constant_variable.dart';
+import 'package:sardordev_consulting/constants/global_method.dart';
+import 'package:sardordev_consulting/widgets/expandable.dart';
+import 'package:sardordev_consulting/widgets/responsive.dart';
 
 class ExpandableWidget extends StatefulWidget {
   final String companyName;
@@ -148,15 +149,15 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
         ),
         const SizedBox(width: 16),
         ConstrainedBox(
-          constraints:
-              BoxConstraints(maxWidth: Responsive.isMobile(context) ? 150 : 300),
+          constraints: BoxConstraints(
+              maxWidth: Responsive.isMobile(context) ? 150 : 300),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  "${DateFormat.yMMMM().format(widget.startDate)} - ${widget.endDate != null ? DateFormat.yMMMM().format(widget.endDate!) : "Present"}",
+                  "${(ConstantVariables().months[widget.startDate.month]).tr()} ${widget.startDate.year}${"year_extended".tr()} - ${widget.endDate != null ? "${(ConstantVariables().months[widget.startDate.month]).tr()} ${widget.startDate.year}${"year_extended".tr()}" : "present".tr()}",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),

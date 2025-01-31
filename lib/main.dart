@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_p/bl/main/main_page_cubit.dart';
-import 'package:website_p/bl/theme/theme_cubit.dart';
-import 'package:website_p/services/router/route.dart';
-import 'package:website_p/services/storage/theme_storage.dart';
+import 'package:sardordev_consulting/bl/main/main_page_cubit.dart';
+import 'package:sardordev_consulting/bl/theme/theme_cubit.dart';
+import 'package:sardordev_consulting/services/router/route.dart';
+import 'package:sardordev_consulting/services/storage/theme_storage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
