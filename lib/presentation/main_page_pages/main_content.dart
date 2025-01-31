@@ -21,7 +21,7 @@ class _MainContentWidgetState extends State<MainContentWidget> {
         .bodyLarge
         ?.copyWith(height: 2, fontWeight: FontWeight.bold);
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 800),
+      constraints:  BoxConstraints(maxWidth: 800, minHeight: MediaQuery.of(context).size.height - 150),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(

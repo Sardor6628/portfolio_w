@@ -102,7 +102,7 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Wrap(
                 children: [
                   Text(
                     widget.companyName,

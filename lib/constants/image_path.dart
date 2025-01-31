@@ -14,4 +14,5 @@ class ImagePath{
   static String get tezbor => "assets/images/companies/tezbor.png";
   static String get dsu => "assets/images/companies/dsu.png";
   static String get pnu => "assets/images/companies/pnu.png";
+  static String get hello => "assets/lotties/hello.json";
  }

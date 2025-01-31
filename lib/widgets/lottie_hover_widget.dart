@@ -6,11 +6,13 @@ class LottieHoverWidget extends StatefulWidget {
   final String lottiePath;
   final String socialUrl;
   final double padding;
+  double size;
 
-   const LottieHoverWidget({
+  LottieHoverWidget({
     super.key,
     required this.lottiePath,
     required this.socialUrl,
+    this.size = 35,
     this.padding = 0,
   });
 
@@ -68,8 +70,8 @@ class _LottieHoverWidgetState extends State<LottieHoverWidget>
         },
         child: Container(
           padding: EdgeInsets.all(widget.padding),
-          width: 35,
-          height: 35,
+          width: widget.size,
+          height: widget.size,
           child: Lottie.asset(
             widget.lottiePath,
             controller: _controller,

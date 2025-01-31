@@ -61,36 +61,39 @@ class RichTextBodyEnglish extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Sardor Ibrokhimov (Sam)",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleLarge
-                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 40),
-                    ),
-                    RichText(
-                        text: TextSpan(
-                            text: "Software Developer ",
-                            style: Theme.of(context).textTheme.titleLarge,
-                            children: [
-                          TextSpan(
-                              text: " in Busan",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge
-                                  ?.copyWith(fontWeight: FontWeight.bold)),
-                        ]))
-                  ],
-                ),
-                Lottie.asset(ImagePath.developer, width: 230)
-              ],
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Sardor Ibrokhimov (Sam)",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge
+                            ?.copyWith(fontWeight: FontWeight.bold, fontSize: 40),
+                      ),
+                      RichText(
+                          text: TextSpan(
+                              text: "Software Developer ",
+                              style: Theme.of(context).textTheme.titleLarge,
+                              children: [
+                            TextSpan(
+                                text: " in Busan",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(fontWeight: FontWeight.bold)),
+                          ]))
+                    ],
+                  ),
+                  Lottie.asset(ImagePath.developer, width: 230)
+                ],
+              ),
             ),
           ),
           RichText(

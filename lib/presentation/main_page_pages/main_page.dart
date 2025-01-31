@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:website_p/bl/main/main_page_cubit.dart';
 import 'package:website_p/presentation/about-me/about_me_page.dart';
+import 'package:website_p/presentation/contact/contact_us.dart';
 import 'package:website_p/presentation/main_page_pages/main_content.dart';
 import 'package:website_p/widgets/animated_text_widget.dart';
 import 'package:website_p/widgets/bottom_navigation_bar.dart';
@@ -53,10 +54,10 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
             ),
             ListTile(
               leading: Icon(Icons.book, color: Colors.blue,),
-              title: Text('My Blog'),
+              title: Text('Contact'),
               onTap: () {
                 Navigator.pop(context);
-                context.read<MainPageCubit>().updateSection('blog');
+                context.read<MainPageCubit>().updateSection('contact');
               },
             ),
           ],
@@ -127,7 +128,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                                                 cursor:
                                                     SystemMouseCursors.click,
                                                 child: HoverableTextButton(
-                                                  label: 'About Me',
+                                                  label: 'About',
                                                   onPressed: () {
                                                     context
                                                         .read<MainPageCubit>()
@@ -136,11 +137,11 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                                                 ),
                                               ),
                                               HoverableTextButton(
-                                                label: 'My Blog',
+                                                label: 'Contact',
                                                 onPressed: () {
                                                   context
                                                       .read<MainPageCubit>()
-                                                      .updateSection('blog');
+                                                      .updateSection('contact');
                                                 },
                                               ),
                                             ],
@@ -174,13 +175,7 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
                       BlocBuilder<MainPageCubit, MainPageState>(
                         builder: (context, state) {
                           if (state is MainPageInitial) {
-                            return ConstrainedBox(
-                                constraints: BoxConstraints(
-                                    minHeight:
-                                        MediaQuery.of(context).size.height -
-                                            100),
-                                child:
-                                    _buildSectionContent(state.currentSection));
+                            return _buildSectionContent(state.currentSection);
                           }
                           return Container();
                         },
@@ -202,15 +197,13 @@ class _MainDisplayPageState extends State<MainDisplayPage> {
     switch (section) {
       case 'about':
         return AboutMePage();
-      case 'blog':
+      case 'contact':
         return const Center(
-          child: Text(
-            'PLACE FOR BLOG',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
+          child: ContactUsPage(),
         );
       default:
         return MainContentWidget();
+        // return ContactUsPage();
         // return AboutMePage();
     }
   }
