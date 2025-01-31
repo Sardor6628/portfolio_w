@@ -36,7 +36,7 @@ Row downloadResumeText(Color color) {
         size: 28,
       ),
       SizedBox(width: 8),
-      Text("Read CV!",
+      Text("Contact",
           style: TextStyle(
             color: color,
             fontSize: 20,

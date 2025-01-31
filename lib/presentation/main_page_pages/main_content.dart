@@ -47,7 +47,9 @@ class _MainContentWidgetState extends State<MainContentWidget> {
                         widgetButton: aboutMeText),
                     const SizedBox(width: 4),
                     GradientButtonWidget(
-                        onTap: () {},
+                        onTap: () {
+                          context.read<MainPageCubit>().updateSection('contact');
+                        },
                         color: const Color(0xff23cbe5),
                         isDarkMode: isDarkMode,
                         isTheme1: false,
