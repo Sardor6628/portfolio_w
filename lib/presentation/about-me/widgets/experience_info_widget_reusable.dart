@@ -104,16 +104,14 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
             children: [
               Row(
                 children: [
-                  Expanded(
-                    child: Text(
-                      widget.companyName,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(fontWeight: FontWeight.bold, height: 1.2),
-                    ),
+                  Text(
+                    widget.companyName,
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(fontWeight: FontWeight.bold, height: 1.2),
                   ),
                   const SizedBox(width: 8),
                   SizedBox(
@@ -133,6 +131,7 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
               ),
               Text(
                 widget.position,
+                maxLines: 3,
                 softWrap: true,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodyMedium,

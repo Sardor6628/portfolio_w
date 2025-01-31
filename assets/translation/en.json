@@ -38,7 +38,11 @@
   "dsu_exp2": "Assisted in delivering the “Raspberry Pi and IoT” course by supporting both lectures and hands-on lab sessions, helping students grasp IoT concepts, hardware integration, and practical implementation.",
   "dsu_exp3": "Oversaw the management and regular updates of the center’s official website, ensuring content accuracy, functionality, and seamless user experience.",
   "dsu_exp4": "Provided guidance to junior students in learning and developing proficiency in C++ programming, focusing on fundamental concepts, problem-solving, and best coding practices.",
-  "dsu_exp5": "Served as a liaison between the office and students, facilitating clear communication, addressing concerns, and ensuring smooth coordination while effectively leading the group."
+  "dsu_exp5": "Served as a liaison between the office and students, facilitating clear communication, addressing concerns, and ensuring smooth coordination while effectively leading the group.",
+  "education": "Education",
+  "bachelor_of_science": "Bachelor of Science in Computer Engineering",
+  "pnu": "Pusan National University",
+  "master_of_science": "Master of Science in Computer Engineering"
 
 
 }
