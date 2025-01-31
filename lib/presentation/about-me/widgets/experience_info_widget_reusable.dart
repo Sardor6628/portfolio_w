@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:website_p/constants/global_method.dart';
 import 'package:website_p/widgets/expandable.dart';
+import 'package:website_p/widgets/responsive.dart';
 
 class ExpandableWidget extends StatefulWidget {
   final String companyName;
@@ -52,13 +53,15 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
             child: ExpandablePanel(
               collapsed: InkWell(
                 onTap: () => controller.toggle(),
-                child: headerWidget(context, Icon(Icons.arrow_forward_ios, size: 12)),
+                child: headerWidget(
+                    context, Icon(Icons.arrow_forward_ios, size: 12)),
               ),
               expanded: InkWell(
                 onTap: () => controller.toggle(),
                 child: Column(
                   children: [
-                    headerWidget(context, Icon(Icons.keyboard_arrow_down_outlined, size: 20)),
+                    headerWidget(context,
+                        Icon(Icons.keyboard_arrow_down_outlined, size: 20)),
                     const SizedBox(height: 8),
                     Row(
                       children: [
@@ -90,7 +93,8 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
     return Row(
       children: [
         Container(
-          decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+          decoration:
+              const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
           child: Image.asset(widget.companyLogo, height: 50),
         ),
         const SizedBox(width: 16),
@@ -100,12 +104,16 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
             children: [
               Row(
                 children: [
-                  Text(
-                    widget.companyName,
-                    softWrap: true,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold, height: 1.2),
+                  Expanded(
+                    child: Text(
+                      widget.companyName,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontWeight: FontWeight.bold, height: 1.2),
+                    ),
                   ),
                   const SizedBox(width: 8),
                   SizedBox(
@@ -126,7 +134,6 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
               Text(
                 widget.position,
                 softWrap: true,
-                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
@@ -134,24 +141,33 @@ class _ExpandableWidgetState extends State<ExpandableWidget> {
                 widget.location,
                 softWrap: true,
                 overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1),
+                style:
+                    Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1),
               ),
             ],
           ),
         ),
         const SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(
-              "${DateFormat.yMMMM().format(widget.startDate)} - ${widget.endDate != null ? DateFormat.yMMMM().format(widget.endDate!) : "Present"}",
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            Text(
-              GlobalMethod().formatDateDifference(widget.startDate, widget.endDate ?? DateTime.now()),
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-          ],
+        ConstrainedBox(
+          constraints:
+              BoxConstraints(maxWidth: Responsive.isMobile(context) ? 150 : 300),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  "${DateFormat.yMMMM().format(widget.startDate)} - ${widget.endDate != null ? DateFormat.yMMMM().format(widget.endDate!) : "Present"}",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ),
+              Text(
+                GlobalMethod().formatDateDifference(
+                    widget.startDate, widget.endDate ?? DateTime.now()),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+            ],
+          ),
         )
       ],
     );
