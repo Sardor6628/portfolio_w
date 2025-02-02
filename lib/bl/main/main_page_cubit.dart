@@ -1,4 +1,3 @@
-// main_page_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -14,11 +13,11 @@ class MainPageCubit extends Cubit<MainPageState> {
   ));
 
   void updateSection(String newSection) {
-    final currentState = state as MainPageInitial;
-    emit(currentState.copyWith(
-      animatedText: '$prefix$newSection',
-      currentSection: newSection,
-    ));
+    if (state is MainPageInitial) {
+      emit((state as MainPageInitial).copyWith(
+        animatedText: '$prefix$newSection',
+        currentSection: newSection,
+      ));
+    }
   }
-
 }

@@ -1,16 +1,11 @@
-# sardordev_consulting
+# 🚀 SardorDev – Future-Ready Software Solutions
 
-A new Flutter project.
+I specialize in **software architecture, automation, AI integration,** and **cross-platform development (Flutter)** to build scalable and high-performance applications.
 
-## Getting Started
+## 🔹 Expertise
+- System Centralization & Automation
+- Generative AI Integration
+- Mobile & Web App Development
+- Fitness, Education, Logistics & GovTech
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+💡 **Let’s bring your ideas to life!** 🚀
